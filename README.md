@@ -34,4 +34,5 @@ The order of the options does not matter. For another example, to use the tagger
 or the following, since using universal POS tags and the choice of ENGLISH as language are defaults:
 
 ```
-./gradlew executeTaggerMain -Psource=./some/where/data.set -Poutput=./some/other/place/results.output ```
+./gradlew executeTaggerMain -Psource=./some/where/data.set -Poutput=./some/other/place/results.output
+```
