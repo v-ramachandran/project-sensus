@@ -4,7 +4,7 @@ __TODO__: Add more detail and make the README more clear.
 
 ### Running the Code
 
-##### POS Tagger for data to generate sentences with superwords
+#### POS Tagger for data to generate sentences with superwords
 
 The library is located under src/tagger, is written in Java, and is built with Gradle. The library offers the four following options:
 
