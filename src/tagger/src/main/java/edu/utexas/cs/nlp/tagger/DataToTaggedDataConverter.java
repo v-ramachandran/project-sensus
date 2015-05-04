@@ -54,10 +54,10 @@ public class DataToTaggedDataConverter {
         }
 
         try (final BufferedWriter fileWriter = 
-            Files.newWriter(targetDataFile, Charsets.ISO_8859_1);) {
+            Files.newWriter(targetDataFile, Charsets.UTF_8);) {
             
             for(final String line : Files.readLines(
-                sourceDataFile, Charsets.ISO_8859_1)) {
+                sourceDataFile, Charsets.UTF_8)) {
                         
                 final String taggedLine = maxentTagger.tagString(line);
                 final String convertedTaggedLine = 
