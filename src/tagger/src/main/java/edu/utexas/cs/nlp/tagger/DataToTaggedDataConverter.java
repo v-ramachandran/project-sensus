@@ -52,19 +52,16 @@ public class DataToTaggedDataConverter {
             
             throw new UnableToCreateTaggedDataFileException(ioException);
         }
-
-        try (final BufferedWriter fileWriter = 
-            Files.newWriter(targetDataFile, Charsets.UTF_8);) {
-            
+        
+        try {
             for(final String line : Files.readLines(
                 sourceDataFile, Charsets.UTF_8)) {
-                        
+                
                 final String taggedLine = maxentTagger.tagString(line);
                 final String convertedTaggedLine = 
                     convertTaggedLineTags(taggedLine);
-                fileWriter.write(convertedTaggedLine);
-                fileWriter.newLine();
-                
+                Files.append(convertedTaggedLine, targetDataFile, Charsets.UTF_8);
+                Files.append("\n", targetDataFile, Charsets.UTF_8);
             }
         } catch (IOException ioException) {
             throw new UnableToCreateTaggedDataFileException(ioException);
