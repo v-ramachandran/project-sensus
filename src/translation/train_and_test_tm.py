@@ -1,8 +1,10 @@
 import sys
 import getopt
 import numpy as np
+import collections
+import random
 from space import Space
-from utils import read_dict, train_tm
+from utils import read_dict, train_tm, train_tm_model, apply_tm, apply_tm_model, get_valid_data, score
 from sklearn import linear_model
 
 def usage(errno=0):
