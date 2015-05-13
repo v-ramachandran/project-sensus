@@ -1,7 +1,7 @@
 import numpy as np
 import collections
 from space import Space
-
+from sklearn import linear_model
 
 def prec_at(ranks, cut):
     return len([r for r in ranks if r <= cut])/float(len(ranks))
@@ -22,6 +22,11 @@ def apply_tm(sp, tm):
     print "Applying the translation matrix, size of data: %d" % sp.mat.shape[0] 
     return Space(sp.mat*tm, sp.id2row)
     
+def apply_tm_model(sp, tm):
+    
+    print "Applying the translation matrix, size of data: %d" % sp.mat.shape[0] 
+    return Space(tm.predict(sp), sp.id2row)
+    
 def get_valid_data(sp1, sp2, data):
     return [(el1, el2) for el1,el2 in data if 
             el1 in sp1.row2id and el2 in sp2.row2id]
@@ -38,7 +43,19 @@ def train_tm(sp1, sp2, data):
     tm = np.linalg.lstsq(m1, m2, -1)[0]
 
     return tm 
+
+def train_tm_model(sp1, sp2, data, model):
+
+    data = get_valid_data(sp1, sp2, data)
+    print "Training using: %d word pairs" % len(data)
     
+    els1, els2 = zip(*data)
+    m1 = sp1.mat[[sp1.row2id[el] for el in els1],:]
+    m2 = sp2.mat[[sp2.row2id[el] for el in els2],:]
+
+    # tm = np.linalg.lstsq(m1, m2, -1)[0]
+    tm = model.fit(m1,m2)
+    return tm 
 
 def score(sp1, sp2, gold, additional):
     
