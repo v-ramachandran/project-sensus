@@ -44,7 +44,7 @@ def train_tm(sp1, sp2, data):
 
     return tm 
 
-def train_tm_model(sp1, sp2, data, model):
+def train_tm_model(sp1, sp2, data, model=linear_models.LinearRegression()):
 
     data = get_valid_data(sp1, sp2, data)
     print "Training using: %d word pairs" % len(data)

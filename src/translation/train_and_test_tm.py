@@ -89,7 +89,7 @@ def main(sys_argv):
     target_sp.normalize()
 
     print "Learning the translation matrix"
-    tm = train_tm_model(source_sp, target_sp, train_data)
+    tm = train_tm_model(source_sp, target_sp, train_data, model)
 
     #print "Printing the translation matrix"
     #np.savetxt("%s.txt" % out_file, tm)
