@@ -46,7 +46,7 @@ def main(sys_argv):
         print str(err)
         usage()
         sys.exit(1)
-
+    
     out_file = "./tm"
     additional = None
     for opt, val in opts:
@@ -66,7 +66,7 @@ def main(sys_argv):
         source_file = argv[1]	
         target_file = argv[2]
         test_file = argv[3]
-        model = eval(arg[4])
+        model = eval(argv[4])
 	dict_file = argv[0]
     else:
 	print str(err)
