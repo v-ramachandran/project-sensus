@@ -1,0 +1,6 @@
+--Readme--
+The run.sh script provided takes source file, target file, source language, target language, source vector dimension and target vector dimension as input. It does the preprocessing, tagging, dictionary creation, word vector formation and the translation. The output is redirected to the results directory.
+Example usage:
+./run.sh file1 file2 language1 language2 dim1 dim2
+
+
