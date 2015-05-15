@@ -1,6 +1,13 @@
 # project-sensus
 
-__TODO__: Add more detail and make the README more clear.
+### Dependencies
+
+We leverage the following libraries for our project:
+
++ TextBlob - Added as a setup.py dependency - http://textblob.readthedocs.org/en/dev/
++ word2vec - https://code.google.com/p/word2vec/
++ Dinu's optimization of word2vec - http://clic.cimec.unitn.it/~georgiana.dinu/down/
++ Stanford CoreNLP - Added as a Gradle dependency - http://nlp.stanford.edu/software/corenlp.shtml
 
 ### Running the Code
 
